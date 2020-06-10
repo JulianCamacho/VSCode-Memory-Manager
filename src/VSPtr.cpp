@@ -101,3 +101,16 @@ template<class T>
 VSPtr<T>::VSPtr(T *p) {
     ptr = p;
 }
+
+template class VSPtr<bool>;
+template class VSPtr<int>;
+template class VSPtr<short int>;
+template class VSPtr<unsigned short>;
+template class VSPtr<unsigned int>;
+template class VSPtr<long>;
+template class VSPtr<long long int>;
+template class VSPtr<unsigned long long int>;
+template class VSPtr<float>;
+template class VSPtr<double>;
+template class VSPtr<long double>;
+template class VSPtr<char>;
