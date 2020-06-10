@@ -6,10 +6,14 @@
 #define VSCODE_MEMORY_MANAGER_GARBAGECOLLECTOR_H
 #include <iostream>
 #include <vector>
+#include "Stoppable.h"
 #include "VSPtr.h"
+
 using namespace std;
 
-class GarbageCollector {
+class SuperVSPtr;
+
+class GarbageCollector : public Stoppable{
     static GarbageCollector *instance;
     // Private constructor so that no objects can be created.
     GarbageCollector() = default;
@@ -28,6 +32,7 @@ public:
     void executeGC();
     static GarbageCollector *getInstance();
 
+    void run() override;
 };
 
 
