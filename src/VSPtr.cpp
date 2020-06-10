@@ -70,6 +70,26 @@ T VSPtr<T>::operator&() {
 }
 
 template<class T>
+VSPtr<T>& VSPtr<T>::operator=(T newValue) {
+    *ptr = newValue;
+    type = typeid(*ptr).name();
+    updateList();
+}
+
+template<class T>
+VSPtr<T>& VSPtr<T>::operator =(VSPtr& other){
+    if (refCount == 1){
+        delete ptr;
+    }
+    ptr = other.ptr;
+    id = other.id;
+    other.refCount++;
+    updateList();
+    updateRefCount(other, other.objNumber);
+    return *this;
+}
+
+template<class T>
 VSPtr<T>::~VSPtr() {
     if (refCount <= 0){
         cout << &ptr <<" Ref count is " << refCount << " ... Destroyed VSPtr! "<< endl;
