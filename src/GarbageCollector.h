@@ -15,6 +15,7 @@ class GarbageCollector {
     GarbageCollector() = default;
 
 public:
+    vector<SuperVSPtr*> generalList;
     vector<void**> dirList;
     vector<void**> addressList;
     vector<string> valueList;

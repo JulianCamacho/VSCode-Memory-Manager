@@ -5,10 +5,26 @@
 #ifndef VSCODE_MEMORY_MANAGER_VSPTR_H
 #define VSCODE_MEMORY_MANAGER_VSPTR_H
 #include <iostream>
+#include "CountVSPtrs.h"
+#include "GarbageCollector.h"
 using namespace std;
 
+class GarbageCollector;
+
+class SuperVSPtr{
+public:
+    int objNumber = 0;
+    int refCount = 0;
+    string id;
+    string type;
+};
+
+// A generic smart pointer class
 template <class T>
-class VSPtr {
+class VSPtr : SuperVSPtr{
+public:
+    static GarbageCollector* sharedGC;
+    static CountVSPtrs* sharedCount;
     int objNumber = 0;
     T* ptr = nullptr;
     int refCount = 0;

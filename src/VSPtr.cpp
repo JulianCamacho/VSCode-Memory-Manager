@@ -3,6 +3,13 @@
 //
 
 #include "VSPtr.h"
+#include "GarbageCollector.h"
+#include "CountVSPtrs.h"
+#include "UUID.h"
+#include "library.h"
+
+template<class T> GarbageCollector* VSPtr<T>::sharedGC = sharedGC->getInstance();
+template<class T> CountVSPtrs* VSPtr<T>::sharedCount = sharedCount->getInstance();
 
 template <class T>
 int VSPtr<T>::getRefCount() const {
@@ -12,11 +19,39 @@ int VSPtr<T>::getRefCount() const {
 template <class T>
 VSPtr<T> VSPtr<T>::New(){
     auto* newPtr = new VSPtr<T>(new T());
+    sharedGC->generalList.push_back(newPtr);
     cout << "Created VSPtr: " << newPtr  << endl;
     newPtr->type = typeid(*newPtr->ptr).name();
+    sharedCount->incrementTotalCount();
+    newPtr->objNumber = sharedCount->getTotalCount();
+    newPtr->id = UUID::generateUUID();
     newPtr->refCount++;
     VSPtr<T> storePtr = *newPtr;
     return storePtr;
+}
+
+template <class T>
+void VSPtr<T>::updateList(){
+    for(int i = 0; i < sharedGC->dirList.size(); i++){
+        if(sharedGC->dirList[i] == reinterpret_cast<void**>(&ptr)){
+            sharedGC->addressList[i] = reinterpret_cast<void**>(ptr);
+            sharedGC->valueList[i] = to_string(*ptr);
+            sharedGC->idList[i] = id;
+            return;
+        }
+    }
+    sharedGC->dirList.push_back(reinterpret_cast<void**>(&ptr));
+    sharedGC->addressList.push_back(reinterpret_cast<void**>(ptr));
+    sharedGC->valueList.push_back(to_string(*ptr));
+    sharedGC->refCountList.push_back(refCount);
+    sharedGC->idList.push_back(id);
+    sharedGC->typeList.push_back(type);
+    sharedGC->objectNo.push_back(objNumber);
+}
+
+template <class T>
+void VSPtr<T>::updateRefCount(VSPtr<T>& other, int index){
+    sharedGC->refCountList[index] = other.getRefCount();
 }
 
 template<class T>
