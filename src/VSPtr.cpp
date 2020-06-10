@@ -13,3 +13,18 @@ VSPtr<T> VSPtr<T>::New(){
     VSPtr<T> storePtr = *newPtr;
     return storePtr;
 }
+
+template<class T>
+T &VSPtr<T>::operator*() {
+    return *ptr;
+}
+
+template<class T>
+T *VSPtr<T>::operator->() {
+    return ptr;
+}
+
+template<class T>
+T VSPtr<T>::operator&() {
+    return *ptr;
+}
