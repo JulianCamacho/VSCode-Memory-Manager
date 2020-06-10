@@ -47,7 +47,7 @@ void VSPtr<T>::updateList(){
     sharedGC->idList.push_back(id);
     sharedGC->typeList.push_back(type);
     sharedGC->objectNo.push_back(objNumber);
-    //getGCPointers();
+    getGCPointers();
 }
 
 template <class T>
