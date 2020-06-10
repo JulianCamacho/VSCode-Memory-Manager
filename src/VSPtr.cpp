@@ -47,6 +47,7 @@ void VSPtr<T>::updateList(){
     sharedGC->idList.push_back(id);
     sharedGC->typeList.push_back(type);
     sharedGC->objectNo.push_back(objNumber);
+    //getGCPointers();
 }
 
 template <class T>
@@ -93,7 +94,8 @@ template<class T>
 VSPtr<T>::~VSPtr() {
     if (refCount <= 0){
         cout << &ptr <<" Ref count is " << refCount << " ... Destroyed VSPtr! "<< endl;
-
+        sharedGC->executeGC();
+        sharedGC->displayGC();
     }
 }
 
@@ -101,6 +103,7 @@ template<class T>
 VSPtr<T>::VSPtr(T *p) {
     ptr = p;
 }
+
 
 template class VSPtr<bool>;
 template class VSPtr<int>;
