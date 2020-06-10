@@ -5,6 +5,11 @@
 #include "VSPtr.h"
 
 template <class T>
+int VSPtr<T>::getRefCount() const {
+    return refCount;
+}
+
+template <class T>
 VSPtr<T> VSPtr<T>::New(){
     auto* newPtr = new VSPtr<T>(new T());
     cout << "Created VSPtr: " << newPtr  << endl;
@@ -27,4 +32,17 @@ T *VSPtr<T>::operator->() {
 template<class T>
 T VSPtr<T>::operator&() {
     return *ptr;
+}
+
+template<class T>
+VSPtr<T>::~VSPtr() {
+    if (refCount <= 0){
+        cout << &ptr <<" Ref count is " << refCount << " ... Destroyed VSPtr! "<< endl;
+
+    }
+}
+
+template<class T>
+VSPtr<T>::VSPtr(T *p) {
+    ptr = p;
 }
