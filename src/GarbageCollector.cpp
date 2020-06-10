@@ -6,12 +6,19 @@
 
 GarbageCollector* GarbageCollector::instance = nullptr;
 
+/**
+ * getInstance Función para retornar la instancia del singleton
+ * @return
+ */
 GarbageCollector* GarbageCollector::getInstance() {
     if (!instance)
         instance = new GarbageCollector;
     return instance;
 }
 
+/**
+ * displayGC Procedimiento para desplegar visualmente el contenido del Garbage Collector
+ */
 void GarbageCollector::displayGC(){
 //    printf("%s \n", "____________________________________________________________________________________________________________________");
 //    printf("%s %62s %51s \n", "|", "VSCode Memory Manager", "|");
@@ -26,6 +33,9 @@ void GarbageCollector::displayGC(){
 //    }
 }
 
+/**
+ * executeGC Procedimiento para liberar la memoria de los VSPtr con conteo en cero
+ */
 void GarbageCollector::executeGC(){
     cout << "Garbage Collector working" << endl;
     if (!dirList.empty()){
@@ -45,8 +55,9 @@ void GarbageCollector::executeGC(){
 }
 
 
-
-
+/**
+ * run Procedimiento que ejecuta el thread del Garbage Collector
+ */
 void GarbageCollector::run() {
     cout << "Garbage Collector Thread Running" << endl;
     //Creamos el garbage collector

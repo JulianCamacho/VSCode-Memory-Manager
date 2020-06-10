@@ -12,7 +12,9 @@
 #include <future>
 using namespace std;
 
-
+/**
+ * Stoppable Clase para el thread del Garbage Collector
+ */
 class Stoppable {
     std::promise<void> exitSignal;
     std::future<void> futureObj;

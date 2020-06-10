@@ -11,11 +11,21 @@
 template<class T> GarbageCollector* VSPtr<T>::sharedGC = sharedGC->getInstance();
 template<class T> CountVSPtrs* VSPtr<T>::sharedCount = sharedCount->getInstance();
 
+/**
+ * getRefCount devuelve el conteo de referencias de un VSPtr
+ * @tparam T
+ * @return número de referencias
+ */
 template <class T>
 int VSPtr<T>::getRefCount() const {
     return refCount;
 }
 
+/**
+ * New función para instanciar un VSPtr e incluirlo en el Garbage Collector
+ * @tparam T
+ * @return nuevo VSPtr
+ */
 template <class T>
 VSPtr<T> VSPtr<T>::New(){
     auto* newPtr = new VSPtr<T>(new T());
@@ -30,6 +40,10 @@ VSPtr<T> VSPtr<T>::New(){
     return storePtr;
 }
 
+/**
+ * updateList Actualiza los datos del VSPtr contenidos en el Garbage Collector
+ * @tparam T
+ */
 template <class T>
 void VSPtr<T>::updateList(){
     for(int i = 0; i < sharedGC->dirList.size(); i++){
@@ -50,26 +64,53 @@ void VSPtr<T>::updateList(){
     getGCPointers();
 }
 
+/**
+ * updateRefCount Actualiza el conteo de referencias del VSPtr a quien están apuntando ahora
+ * @tparam T
+ * @param other El VSPtr a la derecha del igual
+ * @param index Posición en el Garbage Collector
+ */
 template <class T>
 void VSPtr<T>::updateRefCount(VSPtr<T>& other, int index){
     sharedGC->refCountList[index] = other.getRefCount();
 }
 
+/**
+ * Sobrecarga del operador *
+ * @tparam T
+ * @return donde apunta el pointer interno
+ */
 template<class T>
 T &VSPtr<T>::operator*() {
     return *ptr;
 }
 
+/**
+ * Sobrecarga del operador ->
+ * @tparam T
+ * @return la dirección de memoria que almacena el pointer
+ */
 template<class T>
 T *VSPtr<T>::operator->() {
     return ptr;
 }
 
+/**
+ * Sobrecarga del operador &
+ * @tparam T
+ * @return el valor de a lo que apunta el pointer
+ */
 template<class T>
 T VSPtr<T>::operator&() {
     return *ptr;
 }
 
+/**
+ * Sobrecarga del operador = para un tipo primitivo
+ * @tparam T
+ * @param newValue
+ * @return
+ */
 template<class T>
 VSPtr<T>& VSPtr<T>::operator=(T newValue) {
     *ptr = newValue;
@@ -77,6 +118,12 @@ VSPtr<T>& VSPtr<T>::operator=(T newValue) {
     updateList();
 }
 
+/**
+ * Sobrecarga del operador = para otro VSPtr
+ * @tparam T
+ * @param other
+ * @return
+ */
 template<class T>
 VSPtr<T>& VSPtr<T>::operator =(VSPtr& other){
     if (refCount == 1){
@@ -90,6 +137,10 @@ VSPtr<T>& VSPtr<T>::operator =(VSPtr& other){
     return *this;
 }
 
+/**
+ * Destructor de VSPtr
+ * @tparam T
+ */
 template<class T>
 VSPtr<T>::~VSPtr() {
     if (refCount <= 0){
@@ -99,6 +150,11 @@ VSPtr<T>::~VSPtr() {
     }
 }
 
+/**
+ * Constructor de VSPtr
+ * @tparam T
+ * @param p
+ */
 template<class T>
 VSPtr<T>::VSPtr(T *p) {
     ptr = p;

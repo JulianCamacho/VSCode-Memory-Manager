@@ -4,6 +4,10 @@
 
 #include "UUID.h"
 
+/**
+ * generateUUID función para generar el ID tipo UUID
+ * @return
+ */
 string UUID::generateUUID(){
     string CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 

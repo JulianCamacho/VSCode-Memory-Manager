@@ -11,6 +11,9 @@ using namespace std;
 
 class GarbageCollector;
 
+/**
+ * Clase padre de VSPtrs
+ */
 class SuperVSPtr{
 public:
     int objNumber = 0;
@@ -20,6 +23,10 @@ public:
 };
 
 // A generic smart pointer class
+/**
+ * Plantilla para clases VSPtr
+ * @tparam T
+ */
 template <class T>
 class VSPtr : SuperVSPtr{
 public:

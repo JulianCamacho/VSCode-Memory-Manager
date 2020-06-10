@@ -13,6 +13,9 @@ using namespace std;
 
 class SuperVSPtr;
 
+/**
+ * Clase Garbage Collector
+ */
 class GarbageCollector : public Stoppable{
     static GarbageCollector *instance;
     // Private constructor so that no objects can be created.

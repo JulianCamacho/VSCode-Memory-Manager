@@ -13,6 +13,9 @@
 
 using json = nlohmann::json;
 
+/**
+ * getGCPointers Procedimiento que obtiene los datos almacenados en el Garbage Collector y los transforma en un archivo json
+ */
 void getGCPointers(){
 
     //Obtener lista de punteros con los datos respectivos
@@ -69,7 +72,12 @@ void getGCPointers(){
 
 };
 
-//Pasa las direcciones de memoria a un vector con strings para poder pasarlo al json
+/**
+ * dirToString Pasa las direcciones de memoria a un vector con strings para poder pasarlo al json
+ * @param dirList
+ * @return
+ */
+
 vector<string> dirToString(vector<SuperVSPtr*> dirList){
 
     vector<string> newdirlist;
@@ -108,6 +116,10 @@ vector<string> dirToString2(vector<void**> dirList){
     return newdirlist;
 }
 
+/**
+ * createJsonFile Crea el archivo json a partir de un string
+ * @param json string en formato json
+ */
 void createJsonFile(string json){
 
     ofstream file;

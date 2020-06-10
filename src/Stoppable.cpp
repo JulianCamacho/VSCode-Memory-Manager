@@ -9,6 +9,10 @@ void Stoppable::stop(){
     exitSignal.set_value();
 }
 
+/**
+ * stopRequested Función para informar al thread que se detenga
+ * @return
+ */
 //Checks if thread is requested to stop
 bool Stoppable::stopRequested(){
     // checks if value in future object is available
