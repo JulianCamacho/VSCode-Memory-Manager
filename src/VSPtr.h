@@ -14,6 +14,31 @@ class VSPtr {
     int refCount = 0;
     string id;
     string type;
+
+    static VSPtr<T> New();
+
+    // Constructor
+    explicit VSPtr(T* p = NULL);
+    // Destructor
+    ~VSPtr();
+
+    // Overloading dereferncing operator
+    T& operator * ();
+
+    // Overloding arrow operator so that members of T can be accessed
+    // like a pointer (useful if T represents a class or struct or
+    // union type)
+    T * operator -> ();
+
+    T operator &();
+
+    VSPtr<T>& operator =(T newValue);
+
+    VSPtr<T>& operator =(VSPtr& other);
+
+    void updateList();
+    void updateRefCount(VSPtr<T>& other, int index);
+    int getRefCount() const;
 };
 
 
