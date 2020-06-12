@@ -22,8 +22,9 @@ Junio, 2020
 ### Breve Descripción del Proyecto
 Consiste en una extensión para el IDE Visual Studio Code, con el fin de facilitar el uso de manejo de memoria de punteros tipo VSPtr para desarrolladores que utilizan el lenguaje C++. La extensión cuenta con funcionalidades como Heap Visualizer, Garbage Collector y Remote Memory.  
 
-### Documentación Interna
+### Documentación
 + Para accerder a la documentación interna realizada con Doxygen, pulse [aquí](https://juliancamacho.github.io/VSCode-Memory-Manager/)
++ Para accerder a la documentación externa realizada en Jira, pulse [aquí](https://juliancamacho.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=VMM&view=planning&selectedIssue=VMM-31&issueLimit=100)
 + Acceder al [Diagrama de clases](https://github.com/JulianCamacho/VSCode-Memory-Manager/wiki/2.-Diagrama-de-Clases)
 + Acceder a [Estructuras de datos desarrolladas](https://github.com/JulianCamacho/VSCode-Memory-Manager/wiki/3.-Estructuras-de-datos-desarrolladas)
 + Acceder a [Algoritmos desarrollados](https://github.com/JulianCamacho/VSCode-Memory-Manager/wiki/4.-Algoritmos-desarrollados)
