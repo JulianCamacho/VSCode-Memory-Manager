@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Pruebalib.dir/main.cpp.o  -o Pruebalib -Wl,-rpath,/home/jose/Proyecto-I-Datos-II/Pruebalib/VSPlib ../VSPlib/libPrueba3.so 

@@ -1,0 +1,3 @@
+/home/jose/Proyecto-I-Datos-II/Pruebalib/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jose/Proyecto-I-Datos-II/Pruebalib/cmake-build-debug/CMakeFiles/Pruebalib.dir
+/home/jose/Proyecto-I-Datos-II/Pruebalib/cmake-build-debug/CMakeFiles/edit_cache.dir
