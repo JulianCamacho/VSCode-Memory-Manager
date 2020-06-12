@@ -25,3 +25,8 @@ Consiste en una extensión para el IDE Visual Studio Code, con el fin de facilit
 ### Documentación Interna
 + Para accerder a la documentación interna realizada con Doxygen, pulse [aquí](https://juliancamacho.github.io/VSCode-Memory-Manager/)
 + Acceder al [Diagrama de clases](https://github.com/JulianCamacho/VSCode-Memory-Manager/wiki/2.-Diagrama-de-Clases)
++ Acceder a [Estructuras de datos desarrolladas](https://github.com/JulianCamacho/VSCode-Memory-Manager/wiki/3.-Estructuras-de-datos-desarrolladas)
++ Acceder a [Algoritmos desarrollados](https://github.com/JulianCamacho/VSCode-Memory-Manager/wiki/4.-Algoritmos-desarrollados)
+
+### Importante
+La carpeta <node_modules> fue omitida, por motivos de espacio, de las directorios Pruebalib, Extension y Server; por lo que para su correcto funcionamiento debe incluirse <node_modules> en cada una de ellos.
