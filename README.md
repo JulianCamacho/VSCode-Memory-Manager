@@ -1,4 +1,4 @@
-# VSCode-Memory-Manager
+# VSCode Memory Manager ![](https://img.shields.io/badge/VSCode-Memory%20Manager-blue) ![repo size](https://img.shields.io/github/repo-size/JulianCamacho/VSCode-Memory-Manager) 
 
 ![LogoTEC2](https://user-images.githubusercontent.com/48873181/65214107-f21c3e00-da65-11e9-836d-633f34a777c4.png)
 
@@ -31,3 +31,8 @@ Consiste en una extensión para el IDE Visual Studio Code, con el fin de facilit
 
 ### Importante
 La carpeta <node_modules> fue omitida, por motivos de espacio, de las directorios Pruebalib, Extension y Server; por lo que para su correcto funcionamiento debe incluirse <node_modules> en cada una de ellos.
+
+---
+
+![Follow Julián](https://img.shields.io/github/followers/JulianCamacho?label=Follow-Julián&style=social)
+![Follow Jose](https://img.shields.io/github/followers/JoseMendozaMata?label=Follow-Jose&style=social)
